@@ -1,0 +1,13 @@
+﻿@if (Session["username"] != null)
+{
+    <li>@Html.ActionLink(Convert.ToString(Session["username"]), "Index", "Login")</li>
+    using (Html.BeginForm("LogOut", "Login", FormMethod.Post))
+    {
+        <li><a href="javascript:;" onclick="document.forms[0].submit();" >Logout</a></li>
+    }
+}
+else
+{
+    <li>@Html.ActionLink("Login", "Index", "Login")</li>
+    <li>@Html.ActionLink("Sign Up", "Register", "Login")</li>
+}
